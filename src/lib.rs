@@ -3,7 +3,7 @@
 type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Debug)]
-//enum
+//enums
 enum ErrorType {
     Parser,
 }
