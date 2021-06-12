@@ -21,6 +21,12 @@ impl Error {
     }
 }
 
+//add interfacing through trait
+pub trait Operation {
+    fn new(infix_input: &String) -> Result<Self> where Self: Sized;//Self needs to have size to be known at compile time
+    fn reverse_polish_parsing(&mut self) -> Result<()>;
+}
+
 
 //this should contain infix notation(3+4), reverse polish notation, ..
 pub struct OperationInfo {
@@ -28,9 +34,9 @@ pub struct OperationInfo {
     pub reverse_pn: Vec<String>,
 }
 
-impl OperationInfo {
+impl Operation for OperationInfo {
     //initializes the structure and fills out the parameters
-    pub fn new(infix_input: &String) -> Result<Self>{
+    fn new(infix_input: &String) -> Result<Self>{
 
         let mut infix_vector: Vec<char> = vec![];
 
@@ -48,7 +54,7 @@ impl OperationInfo {
         )
     }
     
-    pub fn reverse_polish_parsing(&mut self)->Result<()>{
+    fn reverse_polish_parsing(&mut self)->Result<()>{
         //This is using the shunting yard algorithm
         let math_ops_prio_1: Vec<char> = vec!['+', '-'];
         let math_ops_prio_2: Vec<char> = vec!['*', '/', '%'];
