@@ -28,7 +28,7 @@ pub trait Operation {
 }
 
 
-//this should contain infix notation(3+4), reverse polish notation, ..
+//this should contain infix notation(3+4) and reverse polish notation(34+)
 pub struct OperationInfo {
     pub infix: Vec<char>,
     pub reverse_pn: Vec<String>,
