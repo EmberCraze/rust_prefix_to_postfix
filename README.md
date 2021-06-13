@@ -3,7 +3,7 @@
 
 ## Usage
 1. Place the library inside your project, in this case test_rust_prefix_to_postfix. Then add rust_prefix_to_postfix = {path = "rust_prefix_to_postfix to the dependencies like below
-```
+```Rust
 [package]
 name = "test_rust_prefix_to_postfix"
 version = "0.1.0"
@@ -11,7 +11,7 @@ edition = "2018"
 
 
 [dependencies]
-rust_prefix_to_postfix = {path = "rust_prefix_to_postfix
+rust_prefix_to_postfix = {path = "rust_prefix_to_postfix"}
 ```
 2. Use call the trait in the library and add a new infix operation 
 ```Rust
