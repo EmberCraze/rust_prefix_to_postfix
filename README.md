@@ -11,7 +11,7 @@ edition = "2018"
 
 
 [dependencies]
-rust_prefix_to_postfix = {path = "rust_prefix_to_postfix"}
+rust_prefix_to_postfix = {path = "https://github.com/EmberCraze/rust_prefix_to_postfix.git"}
 ```
 2. Use call the trait in the library and add a new infix operation 
 ```Rust
