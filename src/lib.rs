@@ -98,7 +98,7 @@ pub fn reverse_polish_parsing(infix_input: &String)->Result<Vec<String>>{
                 //if the last value in the stack is of lower prio or if the stack i empty
                 //push the value to the stack
                 //if the last value is not prio 3 and is not an end parenthesis add the prio 3 operand
-                if !math_ops_prio_3.contains(&symbol_stack[symbol_stack.len()-1]) 
+                if symbol_stack.len() == 0 || !math_ops_prio_3.contains(&symbol_stack[symbol_stack.len()-1]) 
                                 && symbol_stack[symbol_stack.len()-1] != &')'{
                     symbol_stack.push(chr);
                     break;
@@ -117,7 +117,7 @@ pub fn reverse_polish_parsing(infix_input: &String)->Result<Vec<String>>{
                 //if the last value in the stack is of lower prio or if the stack i empty
                 //push the value to the stack
                 //if the last value is not prio 2 and is not an end parenthesis add the prio 2 operand
-                if ![&math_ops_prio_2[..],&math_ops_prio_3[..]].concat().contains(&symbol_stack[symbol_stack.len()-1]) 
+                if symbol_stack.len() == 0 || ![&math_ops_prio_2[..],&math_ops_prio_3[..]].concat().contains(&symbol_stack[symbol_stack.len()-1]) 
                                 && symbol_stack[symbol_stack.len()-1] != &')'{
                     symbol_stack.push(chr);
                     break;
@@ -172,7 +172,7 @@ pub fn reverse_polish_parsing(infix_input: &String)->Result<Vec<String>>{
         output.push(symbol_stack[symbol_stack.len()-1].to_string());
         symbol_stack.pop();
     }
-
+    println!("{:?}", output);
     Ok(
         output
     )
