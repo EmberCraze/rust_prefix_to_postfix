@@ -172,7 +172,7 @@ pub fn reverse_polish_parsing(infix_input: &String)->Result<Vec<String>>{
         output.push(symbol_stack[symbol_stack.len()-1].to_string());
         symbol_stack.pop();
     }
-    println!("{:?}", output);
+    println!("{:?}lala", output);
     Ok(
         output
     )
