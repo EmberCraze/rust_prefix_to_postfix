@@ -3,7 +3,7 @@ use std::time::Instant;
 
 fn main(){
     let before = Instant::now();
-    let value: Vec<String> = match lib::reverse_polish_parsing(&".8+.7+((2^2)*3-1)-(2^2)+2-sqrt(5*7+3)".to_string()){
+    let value: Vec<String> = match lib::reverse_polish_parsing(&".8+.7+7,7+((2^2)*3-1)-(2^2)+2-sqrt(5*7+3)".to_string()){
         Ok(a) => a,
         Err(e) => {println!("Error {:?}", e); return;},
     };

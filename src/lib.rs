@@ -112,8 +112,13 @@ pub fn reverse_polish_parsing(infix_input: &String)->Result<Vec<String>>{
             if index > 0 && !infix_as_chars[index - 1].is_digit(10) || index == 0{
                 next_output_value_num.push('0');
             }
-
-            next_output_value_num.push(*chr);
+            //we want to support both . and , but , is not supprted so we have to convert it to .
+            if *chr == ',' {
+                next_output_value_num.push('.');
+            }
+            else {
+                next_output_value_num.push(*chr);
+            }
 
         }
         else if chr.is_alphabetic() {
